@@ -13,20 +13,20 @@ namespace Pokemon_Console
         public void Run()
         {
             SeedPokemonTeam();
+            RunMenu();
         }
         public void RunMenu()
         {
-            bool continueToRunMenu = false;
+            bool continueToRunMenu = true;
 
-            while (continueToRunMenu)
+            while (continueToRunMenu==true)
             {
-                Console.WriteLine("What would you like to do?" +
-                    "1. See my Pokemon Team" +
-                    "2. Add new Pokemon to my Team" +
-                    "3. Update a Pokemon on my Team" +
-                    "4. Remove Pokemon from my Team" +
-                    "5. Exit");
-                Console.Clear();
+                Console.WriteLine("What would you like to do?\n" +
+                    "1. See my Pokemon Team\n" +
+                    "2. Add new Pokemon to my Team\n" +
+                    "3. Update a Pokemon on my Team\n" +
+                    "4. Remove Pokemon from my Team\n" +
+                    "5. Exit\n");
                 int response = int.Parse(Console.ReadLine());
                 switch (response)
                 {
@@ -80,6 +80,7 @@ namespace Pokemon_Console
                         $"\nMove One: {pokemon.MoveOne} \nMove Two: {pokemon.MoveTwo}" +
                         $"\nMove Three: {pokemon.MoveThree} \nMove Four: {pokemon.MoveFour}");
                 }
+                Console.ReadLine();
             }
         }
         private void AddPokemonToTeam()
@@ -164,19 +165,6 @@ namespace Pokemon_Console
                     _Repo.AddPokemonToTeam(newPokemon);
                     Console.WriteLine("Pokemon added!");
                     Console.ReadKey();
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
             }
             Console.Clear();
